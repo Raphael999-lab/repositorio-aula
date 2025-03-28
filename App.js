@@ -1,118 +1,141 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Image, ScrollView } from 'react-native';
+import { ScrollView, Text, StyleSheet, View, ImageBackground } from 'react-native';
+import Filme from './Componentes/Filme';
+import Serie from './Componentes/Serie';
+
+// Lista de filmes 
+const listaFilmes = [
+  {
+    "nome":"Oppenheimer",
+    "ano": 2023,
+    "diretor": "Christopher Nolan",
+    "tipo": "Drama/Histórico",
+    "capa": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
+  },
+  {
+    "nome": "Homem-Aranha: Através do Aranhaverso",
+    "ano": 2023,
+    "diretor": "Joaquim Dos Santos",
+    "tipo": "Animação/Ação",
+    "capa": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xxPXsL8V95dTwL5vHWIIQALkJQS.jpg"
+  },
+  {
+    "nome": "Tudo em Todo o Lugar ao Mesmo Tempo",
+    "ano": 2022,
+    "diretor": "Daniel Kwan",
+    "tipo": "Ficção Científica/Comédia",
+    "capa": "https://br.web.img2.acsta.net/pictures/22/05/16/17/59/5165498.jpg"
+  },
+  {
+    "nome": "Avatar: O Caminho da Água",
+    "ano": 2022,
+    "diretor": "James Cameron",
+    "tipo": "Ficção Científica/Aventura",
+    "capa": "https://assets.cinebelasartes.com.br/wp-content/uploads/2022/12/avatar-o-caminho-da-agu_posters-null-121406-min-scaled.jpeg"
+  }
+];
+
+// Lista de séries
+const listaSeries = [
+  {
+    "nome": "The Last of Us",
+    "ano": 2023,
+    "diretor": "Craig Mazin",
+    "temporadas": 1,
+    "capa": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg",
+    "tipo": "Drama/Pós-apocalíptico"
+  },
+  {
+    "nome": "House of the Dragon",
+    "ano": 2022,
+    "diretor": "Miguel Sapochnik",
+    "temporadas": 1,
+    "capa": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/z2yahl2uefxDCl0nogcRBstwruJ.jpg",
+    "tipo": "Fantasia/Drama"
+  },
+  {
+    "nome": "Wednesday",
+    "ano": 2022,
+    "diretor": "Tim Burton",
+    "temporadas": 1,
+    "capa": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/jeGtaMwGxPmQN5xM4ClnwPQcNQz.jpg",
+    "tipo": "Comédia/Terror"
+  }
+];
 
 export default function App() {
-  const nome = "";
-
-  function alerta() {
-    alert("Qué ota? vou da ota");
-  }
-
   return (
-    <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-      <View style={styles.container}>
-        <Text style={styles.nome}>{nome}</Text>
-        <Text style={styles.textoGrande}>Lucas1 Ex Jogador da Imortals csgo</Text>
-        
-        <Image 
-          source={{ uri: 'https://s2-techtudo.glbimg.com/cthVyvR20caf9WSpwSsZN2qgq-I=/800x0/smart/filters:strip_icc()/s.glbimg.com/po/tt2/f/original/2019/06/25/lucas12.jpg' }}
-          style={styles.imagem}
-        />
-        
-        <Text style={styles.texto}>
-          Lucas "LUCAS1" Teles, nascido em 14 de julho de 1995, é um atleta profissional de Counter-Strike: Global Offensive (CS:GO). Em 2019, ele integrou a equipe da MIBR. Desde o começo de sua carreira, o jogador sempre jogou ao lado de Henrique "HEN1" Teles, seu irmão gêmeo e colega de equipe. LUCAS1 já integrou equipes como a KaBuM! Em e-Sports, atuou com Gabriel "FalleN" Toledo, Lincoln "fnx" Lau e Fernando "fer" Alvarenga, além de integrar a equipe Immortals, que conquistou o segundo lugar no PGL Krakow Major 2017.
-        </Text>
-        
-        <Image 
-          source={{ uri: 'https://s2-techtudo.glbimg.com/kIx5jj9v1NmsU0cGiAoW4cT4cQw=/800x0/smart/filters:strip_icc()/s.glbimg.com/po/tt2/f/original/2019/06/25/lucas13.jpg' }}
-          style={styles.imagem}
-        />
-        
-        <Text style={styles.texto}>
-          Lucas também é famoso por ser o criador de um dos mais famosos slogans da comunidade brasileira de Counter-Strike, o "qué ota?". O jogador, oriundo de Uberlândia, contou com o apoio da família para construir sua trajetória profissional. Seu pai, que também é um entusiasta do jogo de tiro, e seu outro irmão, Charles "pbf1" Teles, também são jogadores profissionais de CS:GO.
-        </Text>
-        
-        <Image 
-          source={{ uri: 'https://s2-techtudo.glbimg.com/RDnFcuix7e_yvX7dwn5MtJyOgkQ=/800x0/smart/filters:strip_icc()/s.glbimg.com/po/tt2/f/original/2019/06/25/lucas11.jpeg' }}
-          style={styles.imagem}
-        />
-        
-        <Text style={styles.texto}>
-          Equipes iniciais: LUCAS1 e HEN1 ingressaram na KaBuM! em abril de 2014. e-Sports, juntando-se à equipe que já tinha FalleN, fer e fnx. Em conjunto, conquistaram competições nacionais como a BSOG 2014, a Masters League #1 da Games Academy e a BGS 2014. No entanto, em janeiro de 2015, os gêmeos deixaram a equipe ao lado de fnx para se juntar a Epitácio "TACO" de Melo e Gustavo "SHOOWTiME" Gonçalves na Dexterity, onde permaneceram até julho de 2015. A mesma formação começou a atuar sob a tag da Games Academy, até que a Luminosity Gaming contratou fnx e TACO em 2016. Lucas e seu irmão fizeram parte deste grupo até junho de 2016, quando foram contratados pela Immortals Productions.
-        </Text>
-        
-        <Image 
-          source={{ uri: 'https://cdn.ome.lt/mcgn00x_t2CDphgU2AzsYzen0S8=/1200x630/smart/extras/conteudos/luminosity-lucas1.jpg' }}
-          style={styles.imagem}
-        />
-        
-        <Text style={styles.texto}>
-          Gaming Luminosity: LUCAS1, após deixar a Immortals, teve breves participações nas equipes 100 Thieves e Não Tem Como. Em junho de 2018, ele e seu irmão foram contratados pela Luminosity Gaming. De acordo com a organização, a dupla venceu o torneio GG.BET Summer Brazil 2018, qualificando-se para a final da ESL Pro League Season 9. Em junho de 2019, o jogador foi confirmado na equipe da MIBR, jogando pela primeira vez sem a companhia de seu irmão.
-        </Text>
-        
-        <Image 
-          source={{ uri: 'https://s2.glbimg.com/Jjr2Zr_gYsM5v0UJkYFXJMpekmA=/0x0:999x999/984x0/smart/filters:strip_icc()/s.glbimg.com/es/ge/f/original/2019/06/25/lucastelesf_62579643_691760997946678_2527096175527753796_n.jpg' }}
-          style={styles.imagem}
-        />
-        
-        <Text style={styles.texto}>
-          Principais títulos: iBUYPOWER Masters 2016, Northern Arena 2016 - Toronto, DreamHack Open Summer 2016, CEVO Pro League Season 9.
-        </Text>
-        
-        <View style={styles.botaoContainer}>
-          <Button title="Botão do HS" onPress={alerta} color="#1E90FF" />
+    <ImageBackground 
+      source={{uri: 'https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces_filter(duotone,032541,01b4e4)/kf456ZqeC45XTvo6W9pW5clYKfQ.jpg'}} 
+      style={styles.backgroundImage}
+      blurRadius={3}
+    >
+      <ScrollView style={styles.container}>
+        <View style={styles.overlay}>
+          <Text style={styles.mainTitle}>Cine IESB</Text>
+          
+          <Text style={styles.sectionTitle}>Clássicos do Cinema</Text>
+          <View style={styles.horizontalScroll}>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {listaFilmes.map((filme, index) => (
+                <View style={styles.cardWrapper} key={`filme-${index}`}>
+                  <Filme {...filme} />
+                </View>
+              ))}
+            </ScrollView>
+          </View>
+
+          <Text style={styles.sectionTitle}>Séries Imperdíveis</Text>
+          <View style={styles.horizontalScroll}>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {listaSeries.map((serie, index) => (
+                <View style={styles.cardWrapper} key={`serie-${index}`}>
+                  <Serie {...serie} />
+                </View>
+              ))}
+            </ScrollView>
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  scrollViewContainer: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#E0F7FA', // Fundo claro azulado
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+  },
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.85)',
+    paddingVertical: 30,
+    paddingHorizontal: 15,
   },
   container: {
-    width: '90%',
-    alignItems: 'center',
-    paddingVertical: 20,
+    flex: 1,
   },
-  nome: {
-    fontSize: 24,
+  mainTitle: {
+    fontSize: 32,
     fontWeight: 'bold',
-    marginBottom: 10,
-    color: '#00796B', // Verde-azulado escuro
-  },
-  textoGrande: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    fontStyle: 'italic',
+    color: '#fff',
+    marginBottom: 30,
     textAlign: 'center',
-    marginBottom: 20,
-    color: '#01579B', // Azul escuro
+    fontFamily: 'sans-serif-condensed',
   },
-  imagem: {
-    height: 300,
-    width: '100%',
-    borderRadius: 10,
-    marginVertical: 20,
-    borderWidth: 2,
-    borderColor: '#B2EBF2', // Azul claro
+  sectionTitle: {
+    fontSize: 22,
+    fontWeight: '600',
+    color: '#01b4e4',
+    marginBottom: 15,
+    marginLeft: 5,
+    fontFamily: 'sans-serif-condensed',
   },
-  texto: {
-    fontSize: 16,
-    textAlign: 'justify',
-    lineHeight: 24,
-    color: '#004D40', // Verde-azulado mais escuro
-    marginBottom: 20,
+  horizontalScroll: {
+    marginBottom: 30,
   },
-  botaoContainer: {
-    width: '60%',
-    marginTop: 20,
-    borderRadius: 10,
-    overflow: 'hidden', // Para garantir que o botão respeite o border radius
+  cardWrapper: {
+    marginRight: 15,
+    width: 150,
   },
 });
