@@ -1,0 +1,1 @@
+/* Consumo da API Lanyard */
